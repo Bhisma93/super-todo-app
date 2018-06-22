@@ -12,6 +12,18 @@ function getOne(id) {
     return db.oneOrNone('select * from todos where id=$1', [id]);
 }
 
+function getAll() {
+    return db.any('select * from todos');
+}
+
+getAll()
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) =>{
+        console.log(error);
+    });
+
 // getTodo(2)
 //     .then(function(data) {
 //         // success;
@@ -23,5 +35,6 @@ function getOne(id) {
 //     });
 
 module.exports = {
-    getOne
+    getOne,
+    getAll
 };
