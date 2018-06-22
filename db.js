@@ -8,20 +8,20 @@ const cn = {
 };
 const db = pgp(cn);
 
-function getTodo (id) {
-    db.oneOrNone('select * from todos where id=$1', [id])
-        .then(function(data) {
-            // success;
-            console.log(data);
-        })
-        .catch(function(error) {
-            // error;
-            console.log(error);
-        });
+function getOne(id) {
+    return db.oneOrNone('select * from todos where id=$1', [id]);
 }
 
-// getTodo(2);
+// getTodo(2)
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
 
 module.exports = {
-    getTodo
+    getOne
 };
