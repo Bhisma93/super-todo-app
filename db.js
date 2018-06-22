@@ -47,7 +47,7 @@ function getPending() {
 //     });
 
 function getFinished(){
-    
+
 }
 
 
@@ -55,5 +55,6 @@ function getFinished(){
 
 module.exports = {
     getOne,
-    getAll
+    getAll,
+    getPending
 };
