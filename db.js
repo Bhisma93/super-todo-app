@@ -100,6 +100,18 @@ function setFinished(id, isDone){
 //         console.log(error);
 //     });
 
+function setTitle(id, newTitle){
+    return db.result("update todos set title='$1#' where id=$2", [newTitle, id]);
+}
+// setTitle(3, 'take a nap')
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
 
 module.exports = {
     getOne,
@@ -108,5 +120,6 @@ module.exports = {
     getFinished,
     searchByTitle,
     deleteById,
-    setFinished
+    setFinished,
+    setTitle
 };
