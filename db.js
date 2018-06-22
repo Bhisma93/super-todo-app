@@ -113,6 +113,20 @@ function setTitle(id, newTitle){
 //         console.log(error);
 //     });
 
+function addOne(title){
+    return db.one("insert into todos (title, isDone) values ('$1#', true) returning id", [title]);
+}
+
+// addOne('Be Awesome Cuz You Are')
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
+
 module.exports = {
     getOne,
     getAll,
@@ -121,5 +135,6 @@ module.exports = {
     searchByTitle,
     deleteById,
     setFinished,
-    setTitle
+    setTitle,
+    addOne
 };
