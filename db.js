@@ -72,6 +72,20 @@ function searchByTitle(searchString){
 //         console.log(error);
 //     });
 
+function deleteById(id){
+    return db.result('delete from todos where id=$1', [id])
+}
+
+deleteById(2)
+    .then(function(data) {
+        // success;
+        console.log(data);
+    })
+    .catch(function(error) {
+        // error;
+        console.log(error);
+    });
+
 
 
 module.exports = {
@@ -79,5 +93,6 @@ module.exports = {
     getAll,
     getPending,
     getFinished,
-    searchByTitle
+    searchByTitle,
+    deleteById
 };
