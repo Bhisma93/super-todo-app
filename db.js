@@ -58,6 +58,19 @@ function getFinished(){
 //         console.log(error)
 //     });
 
+function searchByTitle(searchString){
+    return db.any("select * from todos where title ilike '%$1#%'", [searchString]);
+}
+
+// searchByTitle('buy')
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
 
 
 
@@ -65,5 +78,6 @@ module.exports = {
     getOne,
     getAll,
     getPending,
-    getFinished
+    getFinished,
+    searchByTitle
 };
