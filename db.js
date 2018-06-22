@@ -20,4 +20,8 @@ function getTodo (id) {
         });
 }
 
-getTodo(2);
+// getTodo(2);
+
+module.exports = {
+    getTodo
+};
