@@ -47,8 +47,16 @@ function getPending() {
 //     });
 
 function getFinished(){
-
+    return db.any('select * from todos where isDone=true');
 }
+
+// getFinished()
+//     .then((data) => {
+//         console.log(data)
+//     })
+//     .catch((error) => {
+//         console.log(error)
+//     });
 
 
 
@@ -56,5 +64,6 @@ function getFinished(){
 module.exports = {
     getOne,
     getAll,
-    getPending
+    getPending,
+    getFinished
 };
