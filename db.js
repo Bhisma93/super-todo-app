@@ -76,16 +76,29 @@ function deleteById(id){
     return db.result('delete from todos where id=$1', [id])
 }
 
-deleteById(2)
-    .then(function(data) {
-        // success;
-        console.log(data);
-    })
-    .catch(function(error) {
-        // error;
-        console.log(error);
-    });
+// deleteById(2)
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
 
+function setFinished(id, isDone){
+    return db.result('update todos set isDone=$1 where id=$2', [isDone, id]);
+}
+
+// setFinished(3, true)
+//     .then(function(data) {
+//         // success;
+//         console.log(data);
+//     })
+//     .catch(function(error) {
+//         // error;
+//         console.log(error);
+//     });
 
 
 module.exports = {
@@ -94,5 +107,6 @@ module.exports = {
     getPending,
     getFinished,
     searchByTitle,
-    deleteById
+    deleteById,
+    setFinished
 };
