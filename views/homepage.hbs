@@ -1,5 +1,13 @@
 <h1>Get This Stuff Done:</h1>
 
 {{#each todos}} 
-    <p>{{title}}: {{isdone}}</p>
+    <p>
+        <a href="/{{id}}">
+        {{title}}: 
+        </a>
+        {{isdone}}
+    </p>
+    <button>
+        <a href="/{{id}}/edit">Edit</a>
+    </button>
 {{/each}}

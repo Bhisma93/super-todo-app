@@ -114,7 +114,7 @@ function setTitle(id, newTitle){
 //     });
 
 function addOne(title){
-    return db.one("insert into todos (title, isDone) values ('$1#', true) returning id", [title]);
+    return db.one("insert into todos (title, isDone) values ('$1#', false) returning id", [title]);
 }
 
 // addOne('Be Awesome Cuz You Are')
