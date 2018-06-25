@@ -63,9 +63,9 @@ app.get('/:id/edit', (req, res) => {
 });
 
 app.post('/:id/edit', (req, res) => {
-    console.log(req.body);
-    console.log('That was the shit from the forum')
-    console.log(req.params)
+    // console.log(req.body);
+    // console.log('That was the shit from the forum')
+    // console.log(req.params)
     Todo.setTitle(req.params.id, req.body.title)
     .then((data) => {
         console.log(data)
@@ -104,20 +104,37 @@ app.get('/:id/edit', (req, res) => {
 
 
 // DELETE TODOS
-// app.delete('/:id/edit', (req, res) => {
-//     if(req.body.delete) {
-//         Todo.deleteById(req.params.id)
-//         .then((data) => {
-//             console.log(data);
-//             // res.send(data);
-//             res.render('homepage', data);
-//         })
-//         .catch((error) =>{
-//             console.log(error);
-//         });
-//     };
+app.get('/:id/delete', (req, res) => {
+    Todo.getOne(req.params.id)
+    .then((data) => {
+        console.log(data);
+        res.render('todo-delete-page', data);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+});
+
+app.post('/:id/delete', (req, res) => {
+    if(req.body.delete) {
+        Todo.deleteById(req.params.id)
+        .then((data) => {
+            console.log(data);
+            // res.send(data);
+            Todo.getAll()
+            .then((data) => {
+               console.log(data); 
+               res.render('homepage', {
+                   todos: data
+               });
+            })
+        })
+        .catch((error) =>{
+            console.log(error);
+        });
+    };
    
-// });
+});
 
 
 // ADD NEW TODOS
