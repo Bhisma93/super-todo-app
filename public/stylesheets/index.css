@@ -5,3 +5,8 @@
 body {
     text-align: center;
 }
+
+.form {
+    margin: 25px;
+    background: rgb(red, green, rgb(233, 13, 13));
+}

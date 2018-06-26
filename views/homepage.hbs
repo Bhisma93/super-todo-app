@@ -1,4 +1,21 @@
-<h1>Get This Stuff Done:</h1>
+<header>
+   <h1>Get This Stuff Done:</h1>
+</header>
+
+<hr>
+ <button>
+    <a href="/new">Add</a>
+</button>
+ {{#if isLoggedIn}}
+    <button>
+    <a href="/logout">Log Out</a>
+    </button>
+    {{else}}
+    <button>
+    <a href="/login">Log In</a>
+    </button>
+{{/if}}
+<hr>
 
 {{#each todos}} 
     <p>
@@ -8,13 +25,11 @@
         {{isdone}}
     </p>
     <button>
-        <a href="/new">Add</a>
-    </button>
-    <button>
         <a href="/{{id}}/edit">Edit</a>
     </button>
     <button>
         <a href="/{{id}}/delete">Delete</a>
     </button>
-    
 {{/each}}
+
+   
